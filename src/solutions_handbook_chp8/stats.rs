@@ -22,11 +22,19 @@ pub fn median_and_mode(vector: Vec<i32>) -> (f64, Vec<i32>) {
     }
 
     // Find the maximum occurrence(s)
-    let max_occurrence = occurrences.values().cloned().max().unwrap_or(0);
-    let modes: Vec<i32> = occurrences.into_iter()
-        .filter(|&(_, count)| count == max_occurrence)
-        .map(|(num, _)| num)
-        .collect();
+    let max_occurrence = occurrences.values() // Get the values of the hash map
+                                    .cloned() // Clone the values to avoid borrowing issues
+                                    .max() // Find the maximum occurrence count
+                                    .unwrap_or(0); // Use `unwrap_or(0)` to handle the case of an empty vector
+
+    //.max() returns an Option<i32> because the iterator might be empty (if the map is empty).
+    // .unwrap_or(0)- This unwraps the Option<i32> to get the actual maximum number.
+    // If the map was empty (so no max), it returns 0 as a default.
+
+    let modes: Vec<i32> = occurrences.into_iter() // Convert the hash map into an iterator of (key, value) pairs
+        .filter(|&(_, count)| count == max_occurrence) // Filter the pairs to keep only those with the maximum occurrence count
+        .map(|(num, _)| num) // Map the filtered pairs to just the numbers (keys)
+        .collect(); // Collect the results into a vector of modes
 
     (median, modes)
 }
