@@ -24,7 +24,7 @@ fn solutions_handbook_chp8(){
     print_line_and_add_space();
 
     // Example usage of pig latin conversion
-    let words = vec!["first", "apple", "banana", "orange"];
+    let words = vec!["first apple", "apple mango", "banana orange", "orange yellow"];
     for word in words {
         let pig_latin = pig_latin::pig_latin_conversion(word);
         println!("Pig Latin of '{}': {}", word, pig_latin);
