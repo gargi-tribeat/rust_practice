@@ -14,14 +14,14 @@ fn main() {
 fn solutions_handbook_chp8(){
     println!("Solutions to Vector and Hashmap problems from the Rust Solutions Handbook Chapter 8");
 
-    printLineAndAddSpace();
+    print_line_and_add_space();
 
     // exampe usage of median and mode function
     let numbers = vec![1, 6, 2, 3, 4, 5, 5, 5, 2];
     let (median, modes) = stats::median_and_mode(numbers);
     println!("Median: {}, Modes: {:?}", median, modes);
 
-    printLineAndAddSpace();
+    print_line_and_add_space();
 
     // Example usage of pig latin conversion
     let words = vec!["first", "apple", "banana", "orange"];
@@ -30,14 +30,14 @@ fn solutions_handbook_chp8(){
         println!("Pig Latin of '{}': {}", word, pig_latin);
     }
 
-    printLineAndAddSpace();
+    print_line_and_add_space();
 
     // employees in company
     employees_in_company::employees_in_company();
     println!("End of solutions to Vector and Hashmap problems!");
 }
 
-fn printLineAndAddSpace(){
+fn print_line_and_add_space(){
     println!("------------------------------------------------");
     println!("\n\n");
 }
