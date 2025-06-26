@@ -12,9 +12,7 @@ pub fn pig_latin_conversion(input: &str) -> String {
     input
         .split_whitespace()
         .map(|word| {
-            let first_char = word.chars().// Get the first character of the word
-                                  next(). // Use `next()` to get the first character
-                                  unwrap(); // Unwrap the Option to get the character, assuming the word is not empty
+            let first_char = word.chars().next().unwrap();
             if "aeiouAEIOU".contains(first_char) {
                 format!("{}-hay", word)
             } else {
