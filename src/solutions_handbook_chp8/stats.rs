@@ -1,7 +1,5 @@
 use std::collections::HashMap;
 
-// Given a list of integers, use a vector and return the median (when sorted, the value in the middle position)
-// and mode (the value that occurs most often; a hash map will be helpful here) of the list.
 pub fn median_and_mode(vector: Vec<i32>) -> (f64, Vec<i32>) {
     // Sort the vector to find the median
     let mut sorted_vector = vector.clone();
@@ -26,10 +24,6 @@ pub fn median_and_mode(vector: Vec<i32>) -> (f64, Vec<i32>) {
                                     .cloned() // Clone the values to avoid borrowing issues
                                     .max() // Find the maximum occurrence count
                                     .unwrap_or(0); // Use `unwrap_or(0)` to handle the case of an empty vector
-
-    //.max() returns an Option<i32> because the iterator might be empty (if the map is empty).
-    // .unwrap_or(0)- This unwraps the Option<i32> to get the actual maximum number.
-    // If the map was empty (so no max), it returns 0 as a default.
 
     let modes: Vec<i32> = occurrences.into_iter() // Convert the hash map into an iterator of (key, value) pairs
         .filter(|&(_, count)| count == max_occurrence) // Filter the pairs to keep only those with the maximum occurrence count
