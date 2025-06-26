@@ -24,8 +24,13 @@ fn solutions_handbook_chp8(){
     print_line_and_add_space();
 
     // Example usage of pig latin conversion
-    let words = vec!["first apple", "apple mango", "banana orange", "orange yellow"];
+    let words = vec!["first apple", "apple mango", "banana orange", "orange yellow"]; 
     for word in words {
+        let pig_latin = pig_latin::pig_latin_conversion(word);
+        println!("Pig Latin of '{}': {}", word, pig_latin);
+    }
+    let hindi_words = vec!["नमस्ते", "सुप्रभात", "शुभरात्रि", "आशी"];
+    for word in hindi_words {
         let pig_latin = pig_latin::pig_latin_conversion(word);
         println!("Pig Latin of '{}': {}", word, pig_latin);
     }
