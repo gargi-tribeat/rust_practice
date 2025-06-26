@@ -31,11 +31,11 @@ fn pig_latin_for_hindi(input: &str) -> String {
         .map(|word| {
             let first_char = word.chars().next().unwrap();
             if "अआइईउऊऋ".contains(first_char) {
-                format!("{}-है", word)
+                format!("{}-hay", word)
             } else {
                 let mut chars = word.chars();
                 let first_consonant = chars.next().unwrap();
-                format!("{}-{}य", chars.as_str(), first_consonant)
+                format!("{}-{}ay", chars.as_str(), first_consonant)
             }
         })
         .collect::<Vec<String>>()
